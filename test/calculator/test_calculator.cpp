@@ -66,6 +66,21 @@ TEST_F(TestCalculator, Sub) {
   EXPECT_EQ(10, calc.Run('-', 20, 10));
 }
 
+TEST_F(TestCalculator, Mul) {
+  Calculator calc;
+  EXPECT_EQ(0, calc.Run('*', 0, 0));
+  EXPECT_EQ(0, calc.Run('*', 0, 2));
+  EXPECT_EQ(0, calc.Run('*', 2, 0));
+  EXPECT_EQ(0, calc.Run('*', 0, -2));
+  EXPECT_EQ(0, calc.Run('*', -2, 0));
+  EXPECT_EQ(4, calc.Run('*', 2, 2));
+  EXPECT_EQ(-4, calc.Run('*', 2, -2));
+  EXPECT_EQ(-4, calc.Run('*', -2, 2));
+  EXPECT_EQ(100, calc.Run('*', 10, 10));
+  EXPECT_EQ(200, calc.Run('*', 10, 20));
+  EXPECT_EQ(200, calc.Run('*', 20, 10));
+}
+
 TEST_F(TestCalculator, InvalidOp) {
   Calculator calc;
   EXPECT_THROW(calc.Run('1', 0, 0), std::invalid_argument);
