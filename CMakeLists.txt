@@ -7,6 +7,7 @@ project(${ProjectName})
 # Compile Option
 set(CMAKE_INSTALL_PREFIX "./install" CACHE STRING "install path" FORCE)
 include(${CMAKE_SOURCE_DIR}/cmakes/compile_option.cmake)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Create executable file
 add_executable(
@@ -18,3 +19,10 @@ add_executable(
 # target_sources(${ProjectName} PRIVATE
 #   ooo.cpp
 # )
+
+# Add test module
+option(BUILD_TESTS "BUILD_TESTS" ON)
+if(BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(./test)
+endif()

@@ -4,8 +4,15 @@
 ## How to Run
 ### Linux
 ```sh
+# build
 cmake -B build
 cmake --build build
+# test
+cmake --build build --target test
+# or
+ctest --target-dir build
+# run
+./build/main
 ```
 
 # License
