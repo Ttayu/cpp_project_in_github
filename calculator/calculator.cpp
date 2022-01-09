@@ -11,6 +11,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+#include <stdexcept>
+#include <string>
+
 #include "calculator.h"
 
 Calculator::Calculator() {
@@ -21,4 +24,12 @@ Calculator::~Calculator() {
   // do nothing
 }
 
-int32_t Calculator::Run(char op, int32_t a, int32_t b) { return 0; }
+int32_t Calculator::Run(char op, int32_t a, int32_t b) {
+  switch (op) {
+  case '+':
+    return a + b;
+  default:
+    throw std::invalid_argument(std::string("Unsupported op: [") + op + "]");
+  }
+  return 0;
+}
