@@ -21,8 +21,20 @@ limitations under the License.
 #include <string>
 #include <vector>
 
+#include "calculator.h"
+
 int main(int argc, char *argv[]) {
-  printf("Hello World\n");
+  char op;
+  int32_t a = 0;
+  int32_t b = 0;
+
+  std::cout << ">";
+  std::cin >> a >> op >> b;
+  Calculator calc;
+  int32_t ans = calc.Run(op, a, b);
+  std::cout << std::to_string(a) + " " + op + " " + std::to_string(b) + " = " +
+                   std::to_string(ans)
+            << std::endl;
 
   // Cause security warning
   // char buffer[1];
